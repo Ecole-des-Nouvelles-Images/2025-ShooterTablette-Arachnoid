@@ -3,13 +3,15 @@ using UnityEngine.InputSystem;
 
 namespace Code.Scripts
 {
-    public class CharacterController : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float _energy = 100f;
         
         [SerializeField] private float _moveSpeed = 5f;
         private PlayerInput _playerInput;
         private Rigidbody _rb;
+        public bool IsFiring = false;
+
 
         void Start()
         {
@@ -33,6 +35,11 @@ namespace Code.Scripts
             {
                 Vector3 lookDirection = new Vector3(lookInput.x, 0, lookInput.y);
                 transform.rotation = Quaternion.LookRotation(lookDirection);
+                IsFiring = true;
+            }
+            else
+            {
+                IsFiring = false;
             }
         }
     }
