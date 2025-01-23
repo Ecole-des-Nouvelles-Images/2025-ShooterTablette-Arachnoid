@@ -2,18 +2,13 @@ using UnityEngine;
 
 public class EnemyRobotSwarm : MonoBehaviour {
     [Header("Spawning")]
-    [Tooltip("Enemy prefab")]
-    [SerializeField] private GameObject _enemyPrefab;
-    [Tooltip("Target of all members of the swarm")] 
-    [SerializeField] private GameObject _target;
-    [Tooltip("Minimum & Maximum distance from player to spawn")]
-    [SerializeField] private float _minDistance, _maxDistance;
-    [Tooltip("Interval between enemy spawns")] 
-    [SerializeField] private float _spawnInterval;
+    [Tooltip("Enemy prefab"), SerializeField] private GameObject _enemyPrefab;
+    [Tooltip("Target of all members of the swarm"), SerializeField] private GameObject _target;
+    [Tooltip("Minimum & Maximum distance from player to spawn"), SerializeField] private float _minDistance, _maxDistance;
+    [Tooltip("Interval between enemy spawns"), SerializeField] private float _spawnInterval;
 
     private GameObject _instance;
     private float _sint;
-    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
