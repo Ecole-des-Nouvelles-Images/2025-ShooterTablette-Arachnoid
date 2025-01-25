@@ -5,7 +5,7 @@ namespace Code.Scripts
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private float _energy = 100f;
+        //[SerializeField] private float _energy = 100f;
         
         [SerializeField] private float _moveSpeed = 5f;
         private PlayerInput _playerInput;
