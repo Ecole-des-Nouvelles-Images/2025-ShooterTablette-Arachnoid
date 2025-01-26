@@ -13,6 +13,7 @@ namespace Code.Scripts
 
         private void OnParticleCollision(GameObject other)
         {
+            Debug.Log(other.name);
             Color randomColor = Random.ColorHSV();
             _renderer.material.color = randomColor;
         }
