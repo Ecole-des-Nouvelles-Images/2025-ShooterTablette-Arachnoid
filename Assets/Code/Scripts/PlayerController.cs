@@ -17,20 +17,21 @@ namespace Code.Scripts
         private InputAction _moveAction;
         private InputAction _lookAction;
 
-        public Button FireButton;
+        private Button _fireButton;
 
         private void Start()
         {
+            _fireButton = FindAnyObjectByType<Button>(); // a modifier car l'ui aura d'autres boutons
             _rb = GetComponent<Rigidbody>();
             _playerInput = GetComponent<PlayerInput>();
 
             _moveAction = _playerInput.actions["Move"];
             _lookAction = _playerInput.actions["Look"];
 
-            var fireButtonEventTrigger = FireButton.GetComponent<EventTrigger>();
+            var fireButtonEventTrigger = _fireButton.GetComponent<EventTrigger>();
             if (fireButtonEventTrigger == null)
             {
-                fireButtonEventTrigger = FireButton.gameObject.AddComponent<EventTrigger>();
+                fireButtonEventTrigger = _fireButton.gameObject.AddComponent<EventTrigger>();
             }
 
             AddEventTrigger(fireButtonEventTrigger, EventTriggerType.PointerDown, (eventData) => { IsFiring = true; });
