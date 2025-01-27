@@ -49,10 +49,15 @@ namespace Code.Scripts
             }
 
             Vector2 lookInput = _lookAction.ReadValue<Vector2>();
+
             if (lookInput != Vector2.zero)
             {
                 Vector3 lookDirection = new Vector3(lookInput.x, 0, lookInput.y);
                 transform.rotation = Quaternion.LookRotation(lookDirection);
+            }
+            else if (moveDirection != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(moveDirection);
             }
 
             _moveSpeed = IsFiring ? _fireSpeed : _sprintSpeed;
