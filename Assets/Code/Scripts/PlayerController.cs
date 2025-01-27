@@ -17,20 +17,21 @@ namespace Code.Scripts
         private InputAction _moveAction;
         private InputAction _lookAction;
 
-        public Button FireButton;
+        private Button _fireButton;
 
         private void Start()
         {
+            _fireButton = FindAnyObjectByType<Button>(); // a modifier car l'ui aura d'autres boutons
             _rb = GetComponent<Rigidbody>();
             _playerInput = GetComponent<PlayerInput>();
 
             _moveAction = _playerInput.actions["Move"];
             _lookAction = _playerInput.actions["Look"];
 
-            var fireButtonEventTrigger = FireButton.GetComponent<EventTrigger>();
+            var fireButtonEventTrigger = _fireButton.GetComponent<EventTrigger>();
             if (fireButtonEventTrigger == null)
             {
-                fireButtonEventTrigger = FireButton.gameObject.AddComponent<EventTrigger>();
+                fireButtonEventTrigger = _fireButton.gameObject.AddComponent<EventTrigger>();
             }
 
             AddEventTrigger(fireButtonEventTrigger, EventTriggerType.PointerDown, (eventData) => { IsFiring = true; });
@@ -48,14 +49,21 @@ namespace Code.Scripts
             }
 
             Vector2 lookInput = _lookAction.ReadValue<Vector2>();
-            if (lookInput != Vector2.zero)
+
+            float deadzone = 0.4f; // 10% de deadzone
+            if (lookInput.magnitude > deadzone)
             {
                 Vector3 lookDirection = new Vector3(lookInput.x, 0, lookInput.y);
                 transform.rotation = Quaternion.LookRotation(lookDirection);
             }
+            else if (moveDirection != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(moveDirection);
+            }
 
             _moveSpeed = IsFiring ? _fireSpeed : _sprintSpeed;
         }
+
 
         private void AddEventTrigger(EventTrigger trigger, EventTriggerType eventType, System.Action<BaseEventData> callback)
         {
