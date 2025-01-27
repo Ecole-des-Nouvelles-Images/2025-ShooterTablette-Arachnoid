@@ -762,6 +762,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GO_Character
       objectReference: {fileID: 0}
+    - target: {fileID: 1655336583121165895, guid: 9f4d144921e1ee148a82fe877693a9f0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719464876728629377, guid: 9f4d144921e1ee148a82fe877693a9f0, type: 3}
+      propertyPath: _fireButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775895331480248181, guid: 9f4d144921e1ee148a82fe877693a9f0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8054668567701275925, guid: 9f4d144921e1ee148a82fe877693a9f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

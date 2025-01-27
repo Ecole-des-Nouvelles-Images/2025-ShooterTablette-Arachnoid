@@ -1,17 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Code.Scripts
 {
     public class PlayerController : MonoBehaviour
     {
-        //[SerializeField] private float _energy = 100f;
-        
-        [SerializeField] private float _moveSpeed = 5f;
+        [SerializeField] private float _fireSpeed = 5f;
+        [SerializeField] private float _sprintSpeed = 8f;
+        private float _moveSpeed;
         private PlayerInput _playerInput;
         private Rigidbody _rb;
         public bool IsFiring = false;
-
 
         void Start()
         {
@@ -37,10 +37,13 @@ namespace Code.Scripts
                 transform.rotation = Quaternion.LookRotation(lookDirection);
                 IsFiring = true;
             }
+
             else
             {
                 IsFiring = false;
             }
+
+            _moveSpeed = IsFiring ? _fireSpeed : _sprintSpeed;
         }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7775680109733764509}
   - component: {fileID: 7511647013392608156}
   m_Layer: 0
-  m_Name: SPR_JoestickHandle
+  m_Name: SPR_LookHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 6428060118483153465}
   - component: {fileID: 4634403767230766245}
   m_Layer: 0
-  m_Name: SPR_JoystickHandle
+  m_Name: SPR_MoveHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
