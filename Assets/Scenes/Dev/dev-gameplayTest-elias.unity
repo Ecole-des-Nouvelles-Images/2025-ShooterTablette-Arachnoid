@@ -834,6 +834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FOLDER_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 585849607662542932, guid: e7d8227d1a601e841a07865e9a1f8c65, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3005475332630889260, guid: e7d8227d1a601e841a07865e9a1f8c65, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -874,6 +878,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3992692641057959327, guid: e7d8227d1a601e841a07865e9a1f8c65, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992692641057959327, guid: e7d8227d1a601e841a07865e9a1f8c65, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 6298479618036884474, guid: e7d8227d1a601e841a07865e9a1f8c65, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 6475268111109765567, guid: e7d8227d1a601e841a07865e9a1f8c65, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475268111109765567, guid: e7d8227d1a601e841a07865e9a1f8c65, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
