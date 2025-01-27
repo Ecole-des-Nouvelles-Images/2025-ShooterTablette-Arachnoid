@@ -50,7 +50,8 @@ namespace Code.Scripts
 
             Vector2 lookInput = _lookAction.ReadValue<Vector2>();
 
-            if (lookInput != Vector2.zero)
+            float deadzone = 0.4f; // 10% de deadzone
+            if (lookInput.magnitude > deadzone)
             {
                 Vector3 lookDirection = new Vector3(lookInput.x, 0, lookInput.y);
                 transform.rotation = Quaternion.LookRotation(lookDirection);
@@ -62,6 +63,7 @@ namespace Code.Scripts
 
             _moveSpeed = IsFiring ? _fireSpeed : _sprintSpeed;
         }
+
 
         private void AddEventTrigger(EventTrigger trigger, EventTriggerType eventType, System.Action<BaseEventData> callback)
         {
