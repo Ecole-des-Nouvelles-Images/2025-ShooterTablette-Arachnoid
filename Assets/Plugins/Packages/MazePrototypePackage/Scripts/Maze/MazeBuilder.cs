@@ -6,11 +6,13 @@ using System.Security.Cryptography;
 using System.Text;
 using Plugins.Packages.MazePrototypePackage.Scripts.Utils;
 using Unity.AI.Navigation;
-using Unity.EditorCoroutines.Editor;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = System.Random;
 
+#if UNITY_EDITOR
+    using Unity.EditorCoroutines.Editor;
+#endif
 
 namespace Plugins.Packages.MazePrototypePackage.Scripts.Maze
 {

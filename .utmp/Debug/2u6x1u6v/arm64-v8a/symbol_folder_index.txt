@@ -1,0 +1,1 @@
+C:\Users\c.boyer\Travail\Projets\Unity\2025-ShooterTablette-Arachnoid\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\Debug\2u6x1u6v\obj\arm64-v8a
