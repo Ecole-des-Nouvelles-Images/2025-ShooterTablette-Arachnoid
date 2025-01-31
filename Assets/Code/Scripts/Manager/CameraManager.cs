@@ -1,5 +1,4 @@
 using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Code.Scripts.Manager
@@ -8,6 +7,7 @@ namespace Code.Scripts.Manager
     {
         [SerializeField] private CinemachineBrain _brainCam;
         [SerializeField] private CinemachineCamera _cinemachineCam;
+
         private void OnEnable()
         {
             GameEvents.OnPlayerSpawn += SetCamera;
