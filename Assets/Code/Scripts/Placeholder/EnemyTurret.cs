@@ -1,12 +1,14 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class EnemyTurret : MonoBehaviour {
     [Header("Tracking")]
     [Tooltip("Turret rotating object")]
     [SerializeField] private GameObject Turret;
+    [SerializeField] private GameObject _cannon1, _cannon2;
 
-    [SerializeField] private ParticleSystem _cannonParticles1, _cannonParticles2; 
+    private Vector3 _lookDir;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,9 +23,14 @@ public class EnemyTurret : MonoBehaviour {
     }
 
     private void OnTriggerStay(Collider other) {
-        if (other.CompareTag("Player")) {
-            Debug.Log("AAAAA");
-            _cannonParticles1.Play();
+        if (other.gameObject.CompareTag("Player")) {
+            _lookDir = (other.transform.position - transform.position).normalized;
+
+            Turret.transform.rotation = Quaternion.LookRotation(_lookDir, Vector3.up);
+            
+            Debug.DrawLine(_cannon1.transform.position, other.gameObject.transform.position);
+            Debug.DrawLine(_cannon2.transform.position, other.gameObject.transform.position);
         }
     }
+    
 }
