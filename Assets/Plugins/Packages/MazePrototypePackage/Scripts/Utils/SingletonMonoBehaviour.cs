@@ -11,7 +11,7 @@ namespace Plugins.Packages.MazePrototypePackage.Scripts.Utils
             get
             {
                 if (!_instance)
-                    _instance = (T)FindObjectOfType(typeof(T));
+                    _instance = (T) FindFirstObjectByType(typeof(T));
 
                 return _instance;
             }
