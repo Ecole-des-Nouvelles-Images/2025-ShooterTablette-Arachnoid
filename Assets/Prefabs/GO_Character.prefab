@@ -5114,7 +5114,6 @@ MonoBehaviour:
   _fireSpeed: 5
   _sprintSpeed: 8
   IsFiring: 0
-  FireButton: {fileID: 0}
 --- !u!114 &1215438591455598483
 MonoBehaviour:
   m_ObjectHideFlags: 0
