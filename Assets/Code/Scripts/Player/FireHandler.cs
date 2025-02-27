@@ -1,3 +1,4 @@
+using Code.Scripts.Player;
 using UnityEngine;
 
 namespace Code.Scripts
