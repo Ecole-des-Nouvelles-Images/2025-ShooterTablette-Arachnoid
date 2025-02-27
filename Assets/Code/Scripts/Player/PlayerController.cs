@@ -5,17 +5,20 @@ using UnityEngine.UI;
 
 namespace Code.Scripts.Player
 {
+    [RequireComponent(typeof(PlayerInput), typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float _fireSpeed = 5f;
         [SerializeField] private float _sprintSpeed = 8f;
-        private float _moveSpeed;
+        [SerializeField] private float _moveSpeed;
+
         private PlayerInput _playerInput;
         private Rigidbody _rb;
+
         public bool IsFiring = false;
 
         private InputAction _moveAction;
-        private InputAction _lookAction;
+        private InputAction _lookAttackAction;
 
         private Button _fireButton;
 
@@ -26,9 +29,10 @@ namespace Code.Scripts.Player
             _playerInput = GetComponent<PlayerInput>();
 
             _moveAction = _playerInput.actions["Move"];
-            _lookAction = _playerInput.actions["Look"];
+            _lookAttackAction = _playerInput.actions["LookAttack"];
 
             var fireButtonEventTrigger = _fireButton.GetComponent<EventTrigger>();
+
             if (fireButtonEventTrigger == null)
             {
                 fireButtonEventTrigger = _fireButton.gameObject.AddComponent<EventTrigger>();
@@ -48,7 +52,7 @@ namespace Code.Scripts.Player
                 _rb.MovePosition(_rb.position + moveDirection * (_moveSpeed * Time.fixedDeltaTime));
             }
 
-            Vector2 lookInput = _lookAction.ReadValue<Vector2>();
+            Vector2 lookInput = _lookAttackAction.ReadValue<Vector2>();
 
             float deadzone = 0.4f; // 10% de deadzone
             if (lookInput.magnitude > deadzone)
@@ -63,7 +67,6 @@ namespace Code.Scripts.Player
 
             _moveSpeed = IsFiring ? _fireSpeed : _sprintSpeed;
         }
-
 
         private void AddEventTrigger(EventTrigger trigger, EventTriggerType eventType, System.Action<BaseEventData> callback)
         {

@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Exit : MonoBehaviour
+namespace Code.Scripts.Maze
 {
-    private void OnTriggerEnter(Collider other)
+    public class Exit : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        private void OnTriggerEnter(Collider other)
         {
-            SceneManager.LoadScene("dev-prototypage-christopher");
+            if (other.CompareTag("Player"))
+            {
+                SceneManager.LoadScene("dev-prototypage-christopher");
+            }
         }
     }
 }

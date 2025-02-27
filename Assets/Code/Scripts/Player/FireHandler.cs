@@ -1,11 +1,11 @@
-using Code.Scripts.Player;
 using UnityEngine;
 
-namespace Code.Scripts
+namespace Code.Scripts.Player
 {
     public class FireHandler : MonoBehaviour
     {
         [SerializeField] private Transform _canonTip;
+
         private ParticleSystem _bulletParticleSystem;
         private PlayerController _playerController;
 

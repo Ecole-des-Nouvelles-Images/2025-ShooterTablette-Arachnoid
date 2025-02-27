@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Scripts
+namespace Code.Scripts.Enemies
 {
     public class ToDeleteEnemyHit : MonoBehaviour
     {
