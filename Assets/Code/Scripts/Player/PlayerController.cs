@@ -1,9 +1,9 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-namespace Code.Scripts
+namespace Code.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
