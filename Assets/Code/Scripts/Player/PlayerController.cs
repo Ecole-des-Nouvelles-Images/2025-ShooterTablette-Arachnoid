@@ -8,6 +8,12 @@ namespace Code.Scripts.Player
     [RequireComponent(typeof(PlayerInput), typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {
+        public float MoveSpeed
+        {
+            get => _sprintSpeed;
+            set => _sprintSpeed = value;
+        }
+
         [SerializeField] private float _fireSpeed = 5f;
         [SerializeField] private float _sprintSpeed = 8f;
         [SerializeField] private float _moveSpeed;
@@ -70,9 +76,9 @@ namespace Code.Scripts.Player
 
         private void AddEventTrigger(EventTrigger trigger, EventTriggerType eventType, System.Action<BaseEventData> callback)
         {
-            var entry = new EventTrigger.Entry { eventID = eventType };
-            entry.callback.AddListener((eventData) => callback(eventData));
-            trigger.triggers.Add(entry);
+            // var entry = new EventTrigger.Entry { eventID = eventType };
+            // entry.callback.AddListener((eventData) => callback(eventData));
+            // trigger.triggers.Add(entry);
         }
     }
 }
