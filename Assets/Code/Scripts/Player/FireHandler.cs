@@ -6,7 +6,8 @@ namespace Code.Scripts.Player
     {
         [SerializeField] private Transform _canonTip;
 
-        private ParticleSystem _bulletParticleSystem;
+        private ParticleSystem[] _bulletParticleSystems;
+
         private PlayerController _playerController;
 
         private bool _wasFiring;
@@ -14,19 +15,23 @@ namespace Code.Scripts.Player
         private void Start()
         {
             _playerController = GetComponentInParent<PlayerController>();
-            _bulletParticleSystem = _canonTip.GetComponent<ParticleSystem>();
+            _bulletParticleSystems = _canonTip.GetComponentsInChildren<ParticleSystem>();
         }
 
         private void Update()
         {
             if (_playerController.IsFiring && !_wasFiring)
             {
-                _bulletParticleSystem.Play();
+                foreach(ParticleSystem ps in _bulletParticleSystems)
+                    ps.Play();
+
                 _wasFiring = true;
             }
             else if (!_playerController.IsFiring && _wasFiring)
             {
-                _bulletParticleSystem.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+                foreach (ParticleSystem ps in _bulletParticleSystems)
+                    ps.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+
                 _wasFiring = false;
             }
         }
