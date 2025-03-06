@@ -1556,6 +1556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _root: {fileID: 4209173783697206996}
   _handle: {fileID: 5623279946870640748}
+  _settings: {fileID: 3331828414657270664}
   _drawerAnimationDuration: 1.5
   _toggleButtonPerspective: {fileID: 1368170639133094790}
   _toggleButtonOrthographic: {fileID: 8247761450273538657}
@@ -2645,6 +2646,7 @@ GameObject:
   - component: {fileID: 5525333501814702025}
   - component: {fileID: 6898993663980820809}
   - component: {fileID: 8853274567728126581}
+  - component: {fileID: 3331828414657270664}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -2723,6 +2725,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!225 &3331828414657270664
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146021940545442230}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6483668284187246572
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Cinemachine;
 using TMPro;
+using DG.Tweening;
 
 using Code.Scripts.Camera;
 using Code.Scripts.Player;
-using DG.Tweening;
 
 namespace Code.Scripts.UI.Toolbox
 {
@@ -15,6 +15,7 @@ namespace Code.Scripts.UI.Toolbox
         [SerializeField] private RectTransform _root;
         [Tooltip("Size of the root panel represented by the difference between verticals anchors of the panel (Top - Bottom)")]
         [SerializeField] private Button _handle;
+        [SerializeField] private CanvasGroup _settings;
         [SerializeField] private float _drawerAnimationDuration;
 
         [Header("UI Elements: Camera")]
@@ -59,6 +60,7 @@ namespace Code.Scripts.UI.Toolbox
 
         private void Start()
         {
+            _settings.interactable = false;
             _verticalAnchorDelta = _root.anchorMax.y - _root.anchorMin.y;
 
             SwitchCamera(CameraMode.Perspective);
@@ -100,13 +102,15 @@ namespace Code.Scripts.UI.Toolbox
             {
                 _root.DOAnchorMin(new Vector2(_root.anchorMin.x, _root.anchorMin.y - _verticalAnchorDelta), _drawerAnimationDuration).SetEase(Ease.OutExpo);
                 _root.DOAnchorMax(new Vector2(_root.anchorMax.x, _root.anchorMax.y - _verticalAnchorDelta), _drawerAnimationDuration).SetEase(Ease.OutExpo);
-                _handle.GetComponent<Image>().DOColor(new Color(1, 1, 1, .78f), _drawerAnimationDuration).SetEase(Ease.InOutExpo).SetLoops(-1, LoopType.Yoyo);
+                _handle.GetComponent<Image>().DOColor(new Color(1, 1, 1, .5f), _drawerAnimationDuration).SetEase(Ease.InOutExpo);
+                _settings.interactable = true;
             }
             else
             {
                 _root.DOAnchorMin(new Vector2(_root.anchorMin.x, _root.anchorMin.y + _verticalAnchorDelta), _drawerAnimationDuration).SetEase(Ease.OutExpo);
                 _root.DOAnchorMax(new Vector2(_root.anchorMax.x, _root.anchorMax.y + _verticalAnchorDelta), _drawerAnimationDuration).SetEase(Ease.OutExpo);
-                _handle.GetComponent<Image>().DOColor(new Color(0, 0, 0, 0.78f), _drawerAnimationDuration).SetEase(Ease.InOutExpo).SetLoops(-1, LoopType.Yoyo);
+                _handle.GetComponent<Image>().DOColor(new Color(0, 0, 0, 0.78f), _drawerAnimationDuration);
+                _settings.interactable = false;
             }
         }
 
