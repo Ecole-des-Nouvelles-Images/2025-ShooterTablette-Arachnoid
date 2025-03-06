@@ -43,7 +43,7 @@ namespace Code.Scripts.UI.Toolbox
         private readonly Vector2 _cameraPerspectiveLensRange = new (1, 100);
         private readonly Vector2 _cameraPerspectiveDistanceRange = new (1, 70);
         private readonly Vector2 _cameraOrthographicLensRange = new (1, 30);
-        private readonly Vector2 _playerSpeedRange = new (5, 30);
+        private readonly Vector2 _playerSpeedRange = new (15, 100);
         private readonly Vector2 _playerSizeRange = new (0.1f, 5);
 
         private Color _disabledColor = new(1, 1, 1, .1f);

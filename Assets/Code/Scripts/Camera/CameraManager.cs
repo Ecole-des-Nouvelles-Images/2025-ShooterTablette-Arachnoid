@@ -1,7 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Code.Scripts.Manager
+namespace Code.Scripts.Camera
 {
     public class CameraManager : MonoBehaviour
     {
@@ -13,7 +13,7 @@ namespace Code.Scripts.Manager
             GameEvents.OnPlayerSpawn += SetCamera;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             GameEvents.OnPlayerSpawn -= SetCamera;
         }
