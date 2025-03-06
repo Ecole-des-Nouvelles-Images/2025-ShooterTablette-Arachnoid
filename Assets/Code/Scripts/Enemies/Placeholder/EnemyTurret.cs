@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Scripts.Placeholder
+namespace Code.Scripts.Enemies.Placeholder
 {
     public class EnemyTurret : MonoBehaviour {
         [Header("Tracking")]

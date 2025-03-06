@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Scripts.Placeholder
+namespace Code.Scripts.Enemies.Placeholder
 {
     public class EnemyRobotSwarm : MonoBehaviour {
         [Header("Spawning")]

@@ -4,11 +4,11 @@ using UnityEngine.AI;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace Code.Scripts.Placeholder
+namespace Code.Scripts.Enemies.Placeholder
 {
     [RequireComponent(typeof(NavMeshAgent))]
 
-    public class EnemyRobot : MonoBehaviour {   
+    public class EnemyRobot : MonoBehaviour {
         [Header("Wandering")]
         [Tooltip("List of all possible points.")]
         [SerializeField] private List<Transform> _wanderPoints;
@@ -21,7 +21,7 @@ namespace Code.Scripts.Placeholder
         private int _wanderPointIndex;
 
         [FormerlySerializedAs("_playerRaycastObject")]
-        [Header("Attacking")] 
+        [Header("Attacking")]
         [Tooltip("Self-explanatory.")]
         [SerializeField] private Transform _attackTarget;
         [Tooltip("Object emitting the raycast to detect the player")]
@@ -31,8 +31,8 @@ namespace Code.Scripts.Placeholder
         [Tooltip("Time (in s), during which player will be chased")]
         [SerializeField] private float _awarenessTime;
         [Tooltip("Maxium speed to reach while chasing.")]
-        [SerializeField] private float _speedMultiplier;    
-        [Tooltip("Layer Masks to target player only")] 
+        [SerializeField] private float _speedMultiplier;
+        [Tooltip("Layer Masks to target player only")]
         [SerializeField] private LayerMask _envMask, _playerMask;
         private RaycastHit _hit;
         private bool _attackState;
@@ -44,7 +44,7 @@ namespace Code.Scripts.Placeholder
             _attackState = false;
             _awnst = _awarenessTime;
         }
-    
+
         private void Start() {
             _navMeshAgent = this.GetComponent<NavMeshAgent>();
             _navMeshAgent.speed = _speed;
@@ -63,7 +63,7 @@ namespace Code.Scripts.Placeholder
 
             if (Vector3.Distance(transform.position, _wanderTarget.position) <= _wanderMargin)
                 SelectPoint();
-        
+
             if (Physics.Raycast(_raycastObject.transform.position, transform.forward, _awarenessDistance, _envMask)) {
                 Debug.Log("Hit the environment, nothing here");
             } else if (Physics.Raycast(_raycastObject.transform.position, transform.forward, _awarenessDistance, _playerMask)) {

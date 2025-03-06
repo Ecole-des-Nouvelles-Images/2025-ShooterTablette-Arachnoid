@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
+using Code.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-using Code.Scripts.Internal;
 
 namespace Code.Scripts.LoadingSystem
 {

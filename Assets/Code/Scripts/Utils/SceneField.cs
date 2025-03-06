@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Code.Scripts.Internal
+namespace Code.Scripts.Utils
 {
     [System.Serializable]
     public class SceneField

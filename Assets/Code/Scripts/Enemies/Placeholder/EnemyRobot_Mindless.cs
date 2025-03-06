@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Code.Scripts.Placeholder
+namespace Code.Scripts.Enemies.Placeholder
 {
     [RequireComponent(typeof(NavMeshAgent))]
 
