@@ -3,7 +3,12 @@ guid: a0e4b5b33d9cf784b9318e836a8d792d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Rifle
+    second: {fileID: 2100000, guid: cd71a1ad77f26784fac4a7b616495fd6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
