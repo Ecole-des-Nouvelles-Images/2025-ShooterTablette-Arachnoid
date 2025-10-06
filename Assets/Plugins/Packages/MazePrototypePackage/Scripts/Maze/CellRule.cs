@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Plugins.Packages.MazePrototypePackage.Scripts.Maze
 {
+    /// <summary>
+    /// <c>Cell Rule</c> defines the wall configuration.
+    /// </summary>
     [Serializable]
     public struct CellRule
     {

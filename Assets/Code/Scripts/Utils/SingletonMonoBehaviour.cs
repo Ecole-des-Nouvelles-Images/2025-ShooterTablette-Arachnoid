@@ -10,12 +10,12 @@ namespace Code.Scripts.Utils
             get {
                 if (!_instance) {
                     _instance = (T)FindFirstObjectByType(typeof(T));
- 
+
                     if (!_instance) {
                         _instance = new GameObject(typeof(T).ToString()).AddComponent<T>();
                     }
                 }
- 
+
                 return _instance;
             }
         }
@@ -28,5 +28,7 @@ namespace Code.Scripts.Utils
             Destroy (this);
             return false;
         }
+
+        // ------ //
     }
 }

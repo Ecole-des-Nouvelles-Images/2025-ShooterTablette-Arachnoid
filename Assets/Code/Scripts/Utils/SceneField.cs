@@ -8,9 +8,9 @@ namespace Code.Scripts.Utils
     {
         [SerializeField] private Object _sceneAsset;
 
-        [SerializeField] private string _sceneName = "";
+        private string _sceneName = "";
 
-        public string SceneName => _sceneName;
+        public string SceneName => _sceneAsset.name;
         public Scene Scene => SceneManager.GetSceneByName(_sceneName);
 
         // makes it work with the existing Unity methods (LoadLevel/LoadScene)

@@ -19,28 +19,30 @@ namespace Plugins.Packages.MazePrototypePackage.Scripts.Maze
     [RequireComponent(typeof(NavMeshSurface))]
     public class MazeBuilder : SingletonMonoBehaviour<MazeBuilder>
     {
-        [Header("References")] [SerializeField]
-        private List<CellRule> _cellRules;
+        [Header("References")] [Tooltip("Tick the boxes where the walls are present")]
+        [SerializeField] private List<CellRule> _cellRules;
 
         [SerializeField] private GameObject _entryPrefab;
         [SerializeField] private GameObject _exitPrefab;
 
-        [Header("Generation settings")] [SerializeField]
-        private bool _useRandomSeed;
-
+        [Header("Generation settings")]
+        [SerializeField] private bool _useRandomSeedOnStart;
         [SerializeField] private string _seedPhrase;
         [SerializeField] private int _scale = 1;
 
-        [Header("Props Prefabs")] [SerializeField]
-        private GameObject _torchPrefab;
+        #region PROPS
 
-        [SerializeField] private List<GameObject> _mushroomsPrefabs;
+        //[Header("Props Prefabs")]
+        [HideInInspector] private GameObject _torchPrefab;
+        [HideInInspector] private List<GameObject> _mushroomsPrefabs;
 
-        [Header("Props repartition")] [SerializeField] [Range(0, 1)]
-        private float _lightEmitterProbabilityPerSlot = 0.5f;
+        //[Header("Props repartition")]
+        [HideInInspector] [Range(0, 1)] private float _lightEmitterProbabilityPerSlot = 0.5f;
 
-        [SerializeField] private int _maxLightEmittersPerCell = 4;
-        // [SerializeField] private int _maxPropsPerCell = 4;
+        [HideInInspector] private int _maxLightEmittersPerCell = 4;
+        [HideInInspector] private int _maxPropsPerCell = 4;
+
+        #endregion
 
         public GameObject[,] MazeCells { get; private set; }
         public int Scale => _scale;
@@ -67,7 +69,7 @@ namespace Plugins.Packages.MazePrototypePackage.Scripts.Maze
 
         private void Awake()
         {
-            if (_useRandomSeed)
+            if (_useRandomSeedOnStart)
                 _seedPhrase = GenerateRandomSeed();
         }
 
@@ -80,16 +82,18 @@ namespace Plugins.Packages.MazePrototypePackage.Scripts.Maze
             _maze.Generate();
 
             for (int y = 0; y < _maze.Scale; y++)
-            for (int x = 0; x < _maze.Scale; x++)
             {
-                Cell cell = _maze.GetCell(x, y);
+                for (int x = 0; x < _maze.Scale; x++)
+                {
+                    Cell cell = _maze.GetCell(x, y);
 
-                if (cell != null)
-                    MazeCells[x, y] = Instantiate(cell.Prefab, new Vector3(x * _CELL_SIZE, 0, y * _CELL_SIZE), Quaternion.identity, transform);
-                else
-                    throw new Exception("Error: invalid grid, null cell found.");
+                    if (cell != null)
+                        MazeCells[x, y] = Instantiate(cell.Prefab, new Vector3(x * _CELL_SIZE, 0, y * _CELL_SIZE), Quaternion.identity, transform);
+                    else
+                        throw new Exception("Error: invalid grid, null cell found.");
 
-                yield return null;
+                    yield return null;
+                }
             }
         }
 
@@ -155,6 +159,8 @@ namespace Plugins.Packages.MazePrototypePackage.Scripts.Maze
 
             yield return null;
         }
+
+        #region PROPS
 
         public IEnumerator GenerateProps()
         {
@@ -253,7 +259,9 @@ namespace Plugins.Packages.MazePrototypePackage.Scripts.Maze
         }
         */
 
-        #region Utils
+        #endregion
+
+        #region UTILS
 
         private string GenerateRandomSeed(int length = 32)
         {
@@ -340,6 +348,10 @@ namespace Plugins.Packages.MazePrototypePackage.Scripts.Maze
 
             return children;
         }
+
+        #endregion
+
+        #region EDITOR
 
 #if UNITY_EDITOR
 

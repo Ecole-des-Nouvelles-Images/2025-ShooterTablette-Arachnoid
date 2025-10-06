@@ -27,8 +27,10 @@ namespace Plugins.Packages.MazePrototypePackage.Scripts.Maze
             Grid = new Cell[Scale, Scale];
 
             for (int y = 0; y < Scale; y++)
-            for (int x = 0; x < Scale; x++)
-                Grid[x, y] = new Cell(x, y);
+            {
+                for (int x = 0; x < Scale; x++)
+                    Grid[x, y] = new Cell(x, y);
+            }
         }
 
         private void DepthFirstSearchPass()
